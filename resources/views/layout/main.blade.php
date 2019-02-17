@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Management</title>
-<!--
+     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <script src="{{asset('assets/jquery-3.3.1.js')}}">
     </script>
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}">
@@ -41,102 +42,36 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
      <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css.map')}}">
- -->
+ 
 
-
+<!--
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script></head>
-
+-->
 
 
 <body>
 
-		<!            navigation Bar                >   
+	<!            navigation Bar                >   
+	@yield('navigation')
 
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
-		       <!Navbar Brand>
-		<a class="navbar-brand" href="">Inventory</a>
-
-			  <!links>
-		<ul class="navbar-nav">
-
-			<li class="nav-item active"><button style="background:none" type="button" id="login" class="nav-link">LogIn</button></li>
-
-			<li class="nav-item active"><button style="background:none" type="button" id="signup" class="nav-link">SignUp</button></li>
-			
-
-		</ul>
-
-	</nav>
 
 
 	<!          Login and signup Form         >
 
 	<div id="user" align = "center" class="container" style="width:50%">
 
-
+           
 
 	</div>
-
+     @yield('content')
+     
 
 
 </body>
 
-
-<script type="text/javascript">
-	
-$(document).ready(function(){
-
-	$("#login").click(function(){
-
-		$.ajax(
-		{
-				type:'GET',
-				url:"/login_form", 
-				success: function(result)
-		        {  
-		           $("#user").html(result.html);
-		        },
-		        error:function()
-		        {
-		        	alert('oops!');
-		        }
-
-		});
-		
-    });
-
-
-
-	$("#signup").click(function(){
-
-		$.ajax(
-		{
-				type:'GET',
-				url:"/signup_form", 
-				success: function(result)
-		        {  
-		           $("#user").html(result.html);
-		        },
-		        error:function()
-		        {
-		        	alert('oops!');
-		        }
-
-		});
-		
-    });
-
-
-});
-
-
-	
-
-</script>
-
+	@yield('jquery_ajax')
 
 </html>
