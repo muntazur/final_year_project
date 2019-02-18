@@ -21,6 +21,17 @@ Route::post('check_user','UserController@checkUser');
 
 Route::get('main','UserController@mainPage');
 
+Route::post('save_brand','InventoryController@saveBrand');
+Route::get('get_brands','InventoryController@getBrands');
+
+Route::post('save_category','InventoryController@saveCategory');
+Route::get('get_categories','InventoryController@getCategories');
+
+Route::post('save_product','InventoryController@saveProduct');
+Route::get('get_products','InventoryController@getProducts');
+
+Route::post('update_brand','CrudController@updateBrand');
+Route::post('delete_brand','CrudController@deleteBrand');
 
 Route::get('logout','UserController@logOut');
 

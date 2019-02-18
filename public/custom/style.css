@@ -1,0 +1,9 @@
+
+ul li
+{
+	display: inline-block;
+}
+th,td
+{
+	text-align: center;
+}
